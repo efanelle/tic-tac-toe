@@ -6,7 +6,7 @@
     "Erica Fanelle <efanelle@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/efanelle/tic-tac-toe",
+  "homepage": "https://github.com/efanelle/tic-tac-toe.git",
   "ignore": [
     "**/.*",
     "node_modules",
