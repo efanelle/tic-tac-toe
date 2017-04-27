@@ -1,0 +1,20 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "P'unk Ave tic-tac-toe game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efanelle/tic-tac-toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efanelle/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/efanelle/tic-tac-toe#readme"
+}
