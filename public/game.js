@@ -15,7 +15,12 @@ squares.map(function(el) {
 function enterPlayers() {
   let $play1 = $('.name1').val()
   let $play2 = $('.name2').val()
-  $('.player1 h3').text($play1)
-  $('.player2 h3').text($play2)
-  $('input').val(' ')
+  if($play1 !== ''){
+    $('.player1 h3').text($play1)
+  }
+  if($play2 !== '') {
+    $('.player2 h3').text($play2)
+  }
+  
+  $('input').val('')
 }
