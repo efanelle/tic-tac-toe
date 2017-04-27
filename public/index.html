@@ -4,9 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href='styles.css'></link>
+  
+  <title>Punk-Tac-Toe</title>
 </head>
+
+
 <body>
-  <p>This is a test</p>
+  <div class='header'>
+    <br />
+    <!--<div class='directions'>-->
+      <h1>P'unk-Tac-Toe</h1>
+      <p> Please enter your names and choose your symbol.</p>
+    <!--</div>-->
+  </div>
+  <div class='players'>
+    <div class='player1'>
+      <h3>Player 1:</h3>
+      <input class='name1'></input>
+    </div>
+    <div class='btn'> 
+      <Button onclick='enterPlayers()'>Submit</Button>
+    </div>
+    <div class='player2'>
+      <h3>Player 2:</h3>
+      <input class='name2'></input>
+    </div>
+  </div>
+
+  <div id='board'>
+
+    <div class='row'>
+      <div class='square' id='1'></div>
+      <div class='square' id='2'></div>
+      <div class='square' id='3'></div>
+    </div>
+
+    <div class='row'>
+      <div class='square' id='4'></div>
+      <div class='square' id='5'></div>
+      <div class='square' id='6'></div>
+    </div>
+
+    <div class='row'>
+      <div class='square' id='7'></div>
+      <div class='square' id='8'></div>
+      <div class='square' id='9'></div>
+    </div>
+
+  </div>
+
+  <div class='footer'>
+  </div>
+
+<script type='text/javascript' src='game.js'></script>
 </body>
 </html>

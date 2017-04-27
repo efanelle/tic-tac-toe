@@ -1,0 +1,40 @@
+
+#board {
+  display:flex;
+  width: 60vw;
+  height:50vh;
+  border:1.5px solid black;
+  flex-direction:column;
+  margin: 0 auto;
+  margin-top:3%;
+}
+
+.header {
+  background-color:lightblue;
+  text-align: center;
+  position:relative;
+  margin:-25px -25px 0px -25px;
+  height:25vh;
+  overflow:auto;
+}
+/*.name {
+
+}*/
+.players {
+  display:flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items:center;
+}
+.row {
+  width:100%;
+  display:flex;
+  height:calc(100%/3);
+}
+
+.square {
+  border: 1.5px solid red;
+  width:calc(100%/3);
+  text-align: center;
+  font-size:3.5vw;
+}
