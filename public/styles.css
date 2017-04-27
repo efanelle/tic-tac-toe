@@ -13,13 +13,12 @@
   background-color:lightblue;
   text-align: center;
   position:relative;
-  margin:-25px -25px 0px -25px;
+  margin:-25px -10px 0px -10px;
   height:25vh;
-  overflow:auto;
+  overflow:hidden;
+  font-size:3vh;
 }
-/*.name {
 
-}*/
 .players {
   display:flex;
   justify-content: space-around;
@@ -35,6 +34,13 @@
 .square {
   border: 1.5px solid red;
   width:calc(100%/3);
-  text-align: center;
+  /*text-align: center;*/
   font-size:3.5vw;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.square :hover {
+  background-color:gray;
 }

@@ -13,9 +13,9 @@ squares.map(function(el) {
 })
 
 function enterPlayers() {
-  $('.player1 h3').append('<span> '+$('.name1').val()+'</span')
-  $('.player2 h3').append('<span> '+$('.name2').val()+'</span')
-
+  let $play1 = $('.name1').val()
+  let $play2 = $('.name2').val()
+  $('.player1 h3').text($play1)
+  $('.player2 h3').text($play2)
   $('input').val(' ')
-
 }
