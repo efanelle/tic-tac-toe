@@ -26,6 +26,7 @@ function enterPlayers() {
   }
   $('input').val('')
   $('.player1').addClass('active')
+  $('#users').hide()
 }
 
 //add ability to submit on enter
@@ -36,7 +37,7 @@ $('.user').keyup(function(e) {
 })
 
 $('.square').on('click', function(e) {
-  // e.preventDefault;
+
   if(selected.indexOf(this.id) < 0){
     selected.push(this.id);
     if(move) {
@@ -57,5 +58,8 @@ function reset() {
     $(`#${square}`).text(`${empty}`).removeClass('selected');
   }) 
   selected = [];
+  $('.player1').removeClass('active')
+  $('.player2').removeClass('active')
   console.log('resetting...')
+  $('#users').show()
 }

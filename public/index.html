@@ -19,13 +19,17 @@
     <br />
     <!--<div class='directions'>-->
       <h1>P'unk-Tac-Toe</h1>
-      <p> Please enter your names and choose your symbol.</p>
+      <p> Please enter your names and click submit (or hit enter).  Player 1 will go first
+        and have the 'X' symbol.  Player 2 will go next with the 'O' symbol.  Players will 
+        alternate turns until a user has successfully aligned three of their symbols. You can 
+        start over at any point during the game by clicking the 'Reset Board' button.
+      </p>
     <!--</div>-->
   </div>
   <div class='players'>
     <div class='player1'>
       <h3>Player 1:</h3>
-        <input class='name1 user'></input>
+        <input required class='name1 user'></input>
     </div>
     <div class='btn'> 
       <Button id='users' onclick='enterPlayers()'>Submit</Button>
