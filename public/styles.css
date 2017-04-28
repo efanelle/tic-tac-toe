@@ -52,3 +52,7 @@
 .square:hover {
   background-color:lightgray;
 }
+
+.winner {
+  color: green;
+}
