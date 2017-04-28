@@ -8,7 +8,9 @@
   margin: 0 auto;
   margin-top:3%;
 }
-
+.active {
+  color: green;
+}
 .header {
   background-color:lightblue;
   text-align: center;
@@ -25,10 +27,15 @@
   text-align: center;
   align-items:center;
 }
+
 .row {
   width:100%;
   display:flex;
   height:calc(100%/3);
+}
+
+.square.selected:hover {
+  background-color:lightpink;
 }
 
 .square {
@@ -41,6 +48,6 @@
   align-items:center;
 }
 
-.square :hover {
-  background-color:gray;
+.square:hover {
+  background-color:lightgray;
 }

@@ -25,17 +25,21 @@
   <div class='players'>
     <div class='player1'>
       <h3>Player 1:</h3>
-      <input class='name1'></input>
+        <input class='name1 user'></input>
     </div>
     <div class='btn'> 
-      <Button onclick='enterPlayers()'>Submit</Button>
+      <Button id='users' onclick='enterPlayers()'>Submit</Button>
+      <br />
+      <br />
+      <Button id='reset' onclick='reset()'>Reset Board</Button>
     </div>
     <div class='player2'>
       <h3>Player 2:</h3>
-      <input class='name2'></input>
+      <input class='name2 user'></input>
     </div>
   </div>
 
+<!--Set up board and classes to use flexbox for responsiveness-->
   <div id='board'>
 
     <div class='row'>
@@ -61,6 +65,9 @@
   <div class='footer'>
   </div>
 
+<!--Putting js script tag at bottom to ensure DOM is completely 
+loaded before it's manipulated - could also put all js code in
+document.ready func. -->
 <script type='text/javascript' src='game.js'></script>
 </body>
 </html>
