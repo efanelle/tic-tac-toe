@@ -16,8 +16,8 @@
   text-align: center;
   position:relative;
   margin:-25px -10px 0px -10px;
-  height:30vh;
-  overflow:hidden;
+  height:35vh;
+  overflow:auto;
   font-size:3vh;
   padding:0px 5% 1% 5%;
 }

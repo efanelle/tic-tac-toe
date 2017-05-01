@@ -17,28 +17,28 @@
 <body>
   <div class='header'>
     <br />
-    <!--<div class='directions'>-->
       <h1>P'unk-Tac-Toe</h1>
       <p> Please enter your names and click submit (or hit enter).  Player 1 will go first
         and have the 'X' symbol.  Player 2 will go next with the 'O' symbol.  Players will 
         alternate turns until a user has successfully aligned three of their symbols. You can 
         start over at any point during the game by clicking the 'Reset Board' button.
       </p>
-    <!--</div>-->
   </div>
   <div class='players'>
     <div class='player1'>
-      <h3>Player 1:</h3>
+      <h3>Player 1: X</h3>
+      <h4>Wins: <span class='wins'>0</span></h4>
         <input required class='name1 user'></input>
     </div>
     <div class='btn'> 
-      <Button id='users' onclick='enterPlayers()'>Submit Names</Button>
+      <Button id='users' onclick='enterPlayers()'>Start Game</Button>
       <br />
       <br />
       <Button id='reset' onclick='reset()'>Reset Board</Button>
     </div>
     <div class='player2'>
-      <h3>Player 2:</h3>
+      <h3>Player 2: O</h3>
+      <h4>Wins: <span class='wins'>0</span></h4>
       <input class='name2 user'></input>
     </div>
   </div>
@@ -68,6 +68,7 @@
 
   <div class='footer'>
   </div>
+  
 
 <!--Putting js script tag at bottom to ensure DOM is completely 
 loaded before it's manipulated - could also put all js code in

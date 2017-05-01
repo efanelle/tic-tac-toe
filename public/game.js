@@ -9,29 +9,30 @@ var empty = ' ';
 var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 var combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], 
 [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
-var selected = [];
 var moves1 = [];
 var moves2 = [];
 var move = true;
 var player1 = 'Player 1';
 var player2 = 'Player 2';
+var wins1 = 0, wins2 = 0;
 
 //initialize board with empty blocks 
 squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
 })
 
+//change values of player names or keep default 
+// values of 'Player 1' and 'Player 2'
 function enterPlayers() {
-  player1 = $('.name1').val()
-  player2 = $('.name2').val()
-  if(player1 !== ''){
-    $('.player1 h3').text(`${player1} X`)
-  }
-  if(player2 !== '') {
-    $('.player2 h3').text(`${player2} O`)
-  }
+  player1 = $('.name1').val() || player1
+  player2 = $('.name2').val() || player2
+
+  $('.player1 h3').text(`${player1}: X`)
+  $('.player2 h3').text(`${player2}: O`)
+  
   $('input').val('')
   $('.player1').addClass('active')
+  // reset();
   $('#users').hide()
 }
 
@@ -42,6 +43,7 @@ $('.user').keyup(function(e) {
   }
 })
 
+//track moves 
 $('.square').on('click', function(e) {
 
   if (moves1.indexOf(this.id) < 0 && moves2.indexOf(this.id) < 0) {
@@ -59,9 +61,11 @@ $('.square').on('click', function(e) {
       checkWinner(player2);
     }
   }
+  //change active class to other player
   move = !move;
 })
 
+//reset game board 
 function reset() {
   squares.map(function(square) {
     $(`#${square}`).text(`${empty}`).removeClass('selected winner');
@@ -84,14 +88,20 @@ function checkWinner (player) {
       return $('#' + el).text() === O
     })
     if(matchX || matchO) {
-      console.log(player)
+      if(matchX) {
+        wins1++
+        $('.player1 .wins').text(wins1);
+      }
+      if(matchO) {
+        wins2++
+         $('.player2 .wins').text(wins2);
+      }
+      console.log(wins1, wins2)
       alert (`${player} is the winner!`)
       win.map(function(el) {
         $(`#${el}`).addClass('winner');
       })
     }
-
   }
-
 }
 
