@@ -24,23 +24,25 @@
       </p>
   </div>
   <div class='players'>
-    <div class='player1'>
+    <div class='player1 child'>
       <h3>Player 1: X</h3>
       <h4>Wins: <span class='wins'>0</span></h4>
-        <input placeholder="Enter name" class='name1 user'></input>
+        <input placeholder="Enter name" class='name1 user'/>
     </div>
-    <div class='btn'> 
+    <div class='btn child'> 
+      <h1></h1>
       <Button id='users' onclick='enterPlayers()'>Start Game</Button>
       <br />
       <br />
       <Button id='reset' onclick='reset()'>Reset Board</Button>
     </div>
-    <div class='player2'>
+    <div class='player2 child'>
       <h3>Player 2: O</h3>
       <h4>Wins: <span class='wins'>0</span></h4>
-      <input placeholder="Enter name" class='name2 user'></input>
+      <input placeholder="Enter name" class='name2 user'/>
       <br />
-      <input type='checkbox' class='computer' value='Computer'>Computer</input>
+      <input type='checkbox' name='computer' class='computer' value='Computer'/>
+      <label for='computer'>Play against Computer</label>
     </div>
   </div>
 

@@ -36,7 +36,9 @@ function enterPlayers() {
   $('.player1 h3').text(`${player1}: X`)
   $('.player2 h3').text(`${player2}: O`)
   
-  $('input').val('')
+  // $('input').val('')
+  $('input').hide()
+  $('label').hide()
   $(first).addClass('active')
   $('#users').hide()
 }
@@ -59,23 +61,23 @@ $('.user').keyup(function(e) {
 
 //track moves 
 function squareMoves(e) {
-  if (moves1.indexOf(this.id) < 0 && moves2.indexOf(this.id) < 0) {
+  var space = Number(this.id);
+  if (moves1.indexOf(space) < 0 && moves2.indexOf(space) < 0) {
     if(move) {
-      moves1.push(this.id)
+      moves1.push(space)
       $(this).text(X).css({'color': 'blue'}).addClass('selected')
-      movesLeft.splice(movesLeft.indexOf(Number(this.id)), 1);
+      movesLeft.splice(movesLeft.indexOf(space), 1);
       $('.player2').addClass('active')
       $('.player1').removeClass('active')
       return checkWinner(player1);
     } else {
-      var currMove = this.id;
       if(player2==='Computer') {
-        currMove = compMove;
+        space = compMove;
         console.log('waaaat')
       }
-      moves2.push(currMove)
-      $(`#${currMove}`).text(O).css({'color': 'red'}).addClass('selected')
-      movesLeft.splice(movesLeft.indexOf(currMove), 1);
+      moves2.push(space)
+      $(`#${space}`).text(O).css({'color': 'red'}).addClass('selected')
+      movesLeft.splice(movesLeft.indexOf(space), 1);
       $('.player2').removeClass('active')
       $('.player1').addClass('active')
       return checkWinner(player2);
@@ -89,8 +91,8 @@ $('.square').on('click',squareMoves)
 //reset game board 
 function reset() {
   moves1 = [], moves2 = [], movesLeft = [1,2,3,4,5,6,7,8,9]
-
-  squares.map(function(square) {
+  $('.btn h1').text(`${empty}`)
+  squares.forEach(function(square) {
     $(`#${square}`).text(`${empty}`).removeClass('selected winner');
   }) 
   
@@ -133,9 +135,10 @@ function checkWinner (player) {
         wins2++
          $('.player2 .wins').text(wins2);
       }
-      setTimeout(function() {
-        alert(`${player} is the winner!`)
-      }, 1000);
+      // setTimeout(function() {
+        // alert(`${player} is the winner!`)
+        $('.btn h1').text(`${player} is the winner!`)
+      // }, 1000);
       //add styling to show the win
       win.map(function(el) {
         $(`#${el}`).addClass('winner');

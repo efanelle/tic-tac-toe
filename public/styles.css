@@ -17,6 +17,15 @@ body {
 .active {
   color: green;
 }
+
+.btn {
+  flex-grow: 2;
+  z-index: 100;
+  color:#01524B;
+}
+.child {
+  width: 30%;
+}
 .header {
   background-color:#76CAD4;
   font-family: 'Baloo', cursive;
@@ -64,23 +73,23 @@ body {
 
 .winner {
   color: green !important;
-    -webkit-animation-name: spin;
-    -webkit-animation-duration: 4000ms;
-    -webkit-animation-iteration-count: 4000ms;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: spin;
-    -moz-animation-duration: 4000ms;
-    -moz-animation-iteration-count: 4000ms;
-    -moz-animation-timing-function: linear;
-    -ms-animation-name: spin;
-    -ms-animation-duration: 4000ms;
-    -ms-animation-iteration-count: 4000ms;
-    -ms-animation-timing-function: linear;
-    
-    animation-name: spin;
-    animation-duration: 4000ms;
-    animation-iteration-count: 4000ms;
-    animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count: 4000ms;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 4000ms;
+  -moz-animation-iteration-count: 4000ms;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 4000ms;
+  -ms-animation-iteration-count: 4000ms;
+  -ms-animation-timing-function: linear;
+  
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: 4000ms;
+  animation-timing-function: linear;
 }
 @-ms-keyframes spin {
     from { -ms-transform: rotate(0deg); }
