@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo');
 
+body {
+  /*background-color: #A5A4B4;*/
+  background-color:whitesmoke;
+}
 #board {
   display:flex;
   width: 60vw;
   height:50vh;
-  border:1.5px solid black;
+  /*border:1.5px solid black;*/
+  /*border-radius: 10px;*/
   flex-direction:column;
   margin: 0 auto;
   margin-top:3%;
@@ -12,7 +18,8 @@
   color: green;
 }
 .header {
-  background-color:lightblue;
+  background-color:#76CAD4;
+  font-family: 'Baloo', cursive;
   text-align: center;
   position:relative;
   margin:-25px -10px 0px -10px;
@@ -36,11 +43,13 @@
 }
 
 .square.selected:hover {
-  background-color:lightpink;
+  background-color:#57BD8E;
 }
 
 .square {
-  border: 1.5px solid red;
+  border: 1.5px solid #01524B;
+  margin: 2px;
+  border-radius:10px;
   width:calc(100%/3);
   font-size:3.5vw;
   display:flex;
@@ -50,7 +59,7 @@
 }
 
 .square:hover {
-  background-color:lightgray;
+  background-color:#A5A4B4;;
 }
 
 .winner {

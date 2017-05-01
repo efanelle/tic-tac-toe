@@ -51,16 +51,14 @@ function squareMoves(e) {
       $(this).text(X).css({'color': 'blue'}).addClass('selected')
       $('.player2').addClass('active')
       $('.player1').removeClass('active')
-      checkWinner(player1);
+      return checkWinner(player1);
     } else {
       moves2.push(this.id)
       $(this).text(O).css({'color': 'red'}).addClass('selected')
       $('.player2').removeClass('active')
       $('.player1').addClass('active')
-      checkWinner(player2);
+      return checkWinner(player2);
     }
-    //change active class to other player
-    move = !move;
   }
 }
 
@@ -79,6 +77,7 @@ function reset() {
     move = false;
   } else {
     first = '.player1'
+    move = true;
   }
 
   $('.player1').removeClass('active')
@@ -109,15 +108,20 @@ function checkWinner (player) {
       }
 
       alert (`${player} is the winner!`)
+
+      //add styling to show the win
       win.map(function(el) {
         $(`#${el}`).addClass('winner');
       })
-      // move = !move;
+
       //turn off click handler so no further moves can be made
       $('.square').off();
-      return true;
+      return;
     } 
   }
+  // change active class to other player if no winner
+  move = !move;
+  // check for a tie before returning to game
   if (moves1.length + moves2.length === 9) {
       alert('TIE! Play again!')
     } 
