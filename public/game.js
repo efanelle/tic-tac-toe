@@ -14,6 +14,7 @@ var moves2 = [];
 var move = true;
 var player1 = 'Player 1';
 var player2 = 'Player 2';
+var first = '.player1';
 var wins1 = 0, wins2 = 0;
 
 //initialize board with empty blocks 
@@ -21,7 +22,7 @@ squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
 })
 
-//change values of player names or keep default 
+// change values of player names or keep default 
 // values of 'Player 1' and 'Player 2'
 function enterPlayers() {
   player1 = $('.name1').val() || player1
@@ -31,7 +32,7 @@ function enterPlayers() {
   $('.player2 h3').text(`${player2}: O`)
   
   $('input').val('')
-  $('.player1').addClass('active')
+  $(first).addClass('active')
   $('#users').hide()
 }
 
@@ -47,47 +48,55 @@ function squareMoves(e) {
   if (moves1.indexOf(this.id) < 0 && moves2.indexOf(this.id) < 0) {
     if(move) {
       moves1.push(this.id)
-      $(this).text(X).addClass('selected')
+      $(this).text(X).css({'color': 'blue'}).addClass('selected')
       $('.player2').addClass('active')
       $('.player1').removeClass('active')
       checkWinner(player1);
     } else {
       moves2.push(this.id)
-      $(this).text(O).addClass('selected')
+      $(this).text(O).css({'color': 'red'}).addClass('selected')
       $('.player2').removeClass('active')
       $('.player1').addClass('active')
       checkWinner(player2);
     }
+    //change active class to other player
+    move = !move;
   }
-  //change active class to other player
-  move = !move;
 }
 
 //add event listener 
-$('.square').on('click', squareMoves );
+$('.square').on('click',squareMoves)
 
 //reset game board 
 function reset() {
-  $('.square').on('click', squareMoves );
   squares.map(function(square) {
     $(`#${square}`).text(`${empty}`).removeClass('selected winner');
   }) 
-  selected = [], moves1 = [], moves2 = [];
-  $('.player1').addClass('active')
+  moves1 = [], moves2 = [];
+  // alternate who moves first
+  if(first === '.player1') {
+    first = '.player2'
+    move = false;
+  } else {
+    first = '.player1'
+  }
+
+  $('.player1').removeClass('active')
   $('.player2').removeClass('active')
-  console.log('resetting...')
-  $('#users').show()
-  move = true;
+  $(first).addClass('active');
+
+  //turn click handler back on
+  $('.square').on('click', squareMoves);
 }
 
 function checkWinner (player) {
   for (var i = 0; i < combos.length; i++) {
     var win = combos[i];
     var matchX = win.every(function(el) {
-      return $('#' + el).text() === X
+      return $(`#${el}`).text() === X
     })
     var matchO = win.every(function(el) {
-      return $('#' + el).text() === O
+      return $(`#${el}`).text() === O
     })
     if(matchX || matchO) {
       if(matchX) {
@@ -98,14 +107,19 @@ function checkWinner (player) {
         wins2++
          $('.player2 .wins').text(wins2);
       }
-      console.log(wins1, wins2)
+
       alert (`${player} is the winner!`)
       win.map(function(el) {
         $(`#${el}`).addClass('winner');
       })
-
+      // move = !move;
+      //turn off click handler so no further moves can be made
       $('.square').off();
-    }
+      return true;
+    } 
   }
+  if (moves1.length + moves2.length === 9) {
+      alert('TIE! Play again!')
+    } 
 }
 
