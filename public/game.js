@@ -32,7 +32,6 @@ function enterPlayers() {
   
   $('input').val('')
   $('.player1').addClass('active')
-  // reset();
   $('#users').hide()
 }
 
@@ -44,8 +43,7 @@ $('.user').keyup(function(e) {
 })
 
 //track moves 
-$('.square').on('click', function(e) {
-
+function squareMoves(e) {
   if (moves1.indexOf(this.id) < 0 && moves2.indexOf(this.id) < 0) {
     if(move) {
       moves1.push(this.id)
@@ -63,10 +61,14 @@ $('.square').on('click', function(e) {
   }
   //change active class to other player
   move = !move;
-})
+}
+
+//add event listener 
+$('.square').on('click', squareMoves );
 
 //reset game board 
 function reset() {
+  $('.square').on('click', squareMoves );
   squares.map(function(square) {
     $(`#${square}`).text(`${empty}`).removeClass('selected winner');
   }) 
@@ -101,6 +103,8 @@ function checkWinner (player) {
       win.map(function(el) {
         $(`#${el}`).addClass('winner');
       })
+
+      $('.square').off();
     }
   }
 }
