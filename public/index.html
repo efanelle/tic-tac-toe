@@ -21,6 +21,7 @@
         and have the 'X' symbol.  Player 2 will go next with the 'O' symbol.  Players will 
         alternate turns until a user has successfully aligned three of their symbols. You can 
         start over at any point during the game by clicking the 'Reset Board' button.
+        If you don't have a second player, you can choose to play against the computer.  
       </p>
   </div>
   <div class='players'>
@@ -39,10 +40,12 @@
     <div class='player2 child'>
       <h3>Player 2: O</h3>
       <h4>Wins: <span class='wins'>0</span></h4>
-      <input placeholder="Enter name" class='name2 user'/>
+      <form>
+      <input type="radio" name="name" value="name"><input placeholder="Enter name" class='name2 user'/></input>
       <br />
-      <input type='checkbox' name='computer' class='computer' value='Computer'/>
+      <input type='radio' name='name' class='computer' value='Computer'/>
       <label for='computer'>Play against Computer</label>
+      </form>
     </div>
   </div>
 

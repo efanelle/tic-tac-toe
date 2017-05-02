@@ -4,14 +4,15 @@ body {
   /*background-color: #A5A4B4;*/
   background-color:whitesmoke;
 }
+form {
+  text-align: left;
+}
 #board {
   display:flex;
   width: 60vw;
   height:50vh;
-  /*border:1.5px solid black;*/
-  /*border-radius: 10px;*/
   flex-direction:column;
-  margin: 0 auto;
+  margin: 0 auto 10% auto;
   margin-top:3%;
 }
 .active {
@@ -71,7 +72,7 @@ body {
   background-color:#A5A4B4;;
 }
 
-.winner {
+.winner{
   color: green !important;
   -webkit-animation-name: spin;
   -webkit-animation-duration: 4000ms;
