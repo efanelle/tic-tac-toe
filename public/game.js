@@ -70,9 +70,8 @@ function enterPlayers() {
   
   $('.show').hide();
   $('.btns').show();
-  $(first).addClass('active');
-
   $('.user').val('')
+  $(first).addClass('active');
 
   // start event listener so moves can be made
   $('.square').on('click',squareMoves)
@@ -100,7 +99,7 @@ function squareMoves(e) {
       current = '.player2'
       next = '.player1'
     }
-    $(`#${space}`).text(piece).css({'color': color}).addClass('selected')
+    $(`#${space}`).text(piece).css({'color': color, 'font-family': 'Baloo'}).addClass('selected')
     moves.push(space);
     movesLeft.splice(movesLeft.indexOf(space), 1);
     $(current).removeClass('active')
@@ -113,7 +112,6 @@ function squareMoves(e) {
 function reset() {
   clearBoard()
 
-  // moves1 = [], moves2 = [], 
   moves = [];
   movesLeft = [1,2,3,4,5,6,7,8,9]
   $('.btn h1').text(`${empty}`)
@@ -180,10 +178,8 @@ function checkWinner (player) {
 
   // check for a tie before returning to game
   if (moves.length === 9) {
-      setTimeout(function(){
-        alert('TIE! Play again!')
-      }, 200)
-    }
+      $('.btn h1').text(`Tie, play again!`)
+  }
 
   // if player 2 is computer, set off click handler for next move
   if (player2 === 'Computer' && !move) {
