@@ -28,11 +28,11 @@
     <div class='player1 child'>
       <h2>Player 1: X</h2>
       <h3>Wins: <span class='wins'>0</span></h3>
-        <input placeholder="Enter name" class='name1 user'/>
+        <input placeholder="Enter name" class='name1 user show'/>
     </div>
     <div class='btn child'> 
       <h1></h1>
-      <Button id='users' onclick='enterPlayers()'>Start Game</Button>
+      <Button id='users' class='show' onclick='enterPlayers()'>Start Game</Button>
 
       <div class= 'btns'>
       <Button id='reset' onclick='reset()'>Reset Board</Button>
@@ -45,11 +45,11 @@
       <h2>Player 2: O</h2>
       <h3>Wins: <span class='wins'>0</span></h3>
 
-        <input placeholder="Enter name" class='name2 user'/> 
+        <input placeholder="Enter name" class='name2 user show'/> 
         <br/>
-        <label> OR </label>
-        <input type='radio' name='name' class='computer' value='Computer'/>
-        <label for='computer'>Play against Computer</label>
+        <label class='show'> OR </label>
+        <input type='radio' name='name' class='computer show' value='Computer'/>
+        <label class='show' for='computer'>Play against Computer</label>
 
     </div>
   </div>

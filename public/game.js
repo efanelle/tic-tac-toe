@@ -10,46 +10,24 @@ var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 var combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], 
 [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
 
-var movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-var moves1 = [];
-var moves2 = [];
-var move = true;
-var compMove;
-var player1 = 'Player 1';
-var player2 = 'Player 2';
-var first = '.player1';
-var wins1 = 0, wins2 = 0;
+// var movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// var moves1 = [];
+// var moves2 = [];
+// var move = true;
+// var compMove;
+// var player1 = 'Player 1';
+// var player2 = 'Player 2';
+// var first = '.player1';
+// var wins1 = 0, wins2 = 0;
+var movesLeft, moves1, moves2, move, compMove, 
+player1, player2, first, wins1, wins2;
 
-
-function newGame() {
-  $('input').show()
-  $('label').show()
-  $('#users').show()
-  $('.btns').hide()
-
-  reset();
-  move = true;
-  compMove;
-  player1 = 'Player 1';
-  player2 = 'Player 2';
-  first = '.player1';
-  wins1 = 0, wins2 = 0;
-
-
-  $('.player1').removeClass('active')
-  $('.player2').removeClass('active')
-  $('.player1 h2').text(`${player1}: X`)
-  $('.player2 h2').text(`${player2}: O`)
-  $('.player1 .wins').text('0');
-  $('.player2 .wins').text('0');
-
-  clearBoard()
-  $('.square').off();
-}
 //initialize board with empty blocks 
 squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
 })
+newGame();
+
 
 //add ability to submit on enter
 $('.user').keyup(function(e) {
@@ -57,6 +35,34 @@ $('.user').keyup(function(e) {
     $('#users').click();
   }
 })
+
+
+function newGame() {
+  $('.show').show();
+  $('.btns').hide();
+
+ //assign variable values
+  movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  moves1 = [];
+  moves2 = [];
+  move = true;
+  compMove;
+  player1 = 'Player 1';
+  player2 = 'Player 2';
+  first = '.player1';
+  wins1 = 0, wins2 = 0;
+
+  $('.player1').removeClass('active');
+  $('.player2').removeClass('active');
+  $('.player1 h2').text(`${player1}: X`);
+  $('.player2 h2').text(`${player2}: O`);
+  $('.player1 .wins').text('0');
+  $('.player2 .wins').text('0');
+
+  clearBoard();
+  $('.square').off();
+}
+
 
 function clearBoard() {
     squares.forEach(function(square) {
@@ -70,30 +76,28 @@ function clearBoard() {
 // check for computer
 function enterPlayers() {
   var checked = $('.computer:checked').val();
-  player1 = $('.name1').val() || player1
-  player2 = $('.name2').val() || player2
-  if(checked) player2 = checked
+  player1 = $('.name1').val() || player1;
+  player2 = $('.name2').val() || player2;
+  if(checked) player2 = checked;
 
-  $('.player1 h2').text(`${player1}: X`)
-  $('.player2 h2').text(`${player2}: O`)
+  $('.player1 h2').text(`${player1}: X`);
+  $('.player2 h2').text(`${player2}: O`);
   
-  $('input').hide()
-  $('label').hide()
-  $('#users').hide()
-  $('.btns').show()
-  $(first).addClass('active')
+  $('.show').hide();
+  $('.btns').show();
+  $(first).addClass('active');
 
   $('.user').val('')
 
   // start event listener so moves can be made
   $('.square').on('click',squareMoves)
-
 }
 
 //track moves 
 function squareMoves(e) {
   var space = Number(this.id);
   if (moves1.indexOf(space) < 0 && moves2.indexOf(space) < 0) {
+    
     if(move) {
       moves1.push(space)
       $(`#${space}`).text(X).css({'color': '#FFBEB9'}).addClass('selected')
@@ -144,6 +148,8 @@ function reset() {
   //turn click handler back on
   $('.square').on('click', squareMoves);
 }
+
+
 
 function checkWinner (player) {
 
