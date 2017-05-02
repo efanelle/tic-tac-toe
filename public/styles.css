@@ -28,12 +28,12 @@ form {
 #reset {
   display:none;
 }
-/*.row:nth-child(odd) div:nth-child(odd) {
-  background-color:#478E71;
+.row:nth-child(odd) div:nth-child(odd) {
+  background-color:#c0e8ed;
 }
 .row:nth-child(even) div:nth-child(even) {
-  background-color:#478E71;
-}*/
+  background-color:#c0e8ed;
+}
 
 .active {
   color: green;
@@ -74,11 +74,11 @@ form {
 }
 
 .square.selected:hover {
-  background-color:#57BD8E;
+  border:1px solid red;
 }
 
 .square {
-  border: 1.5px solid #01524B;
+  border: 1px solid #01524B;
   margin: 2px;
   border-radius:10px;
   width:calc(100%/3);
@@ -88,10 +88,10 @@ form {
   align-items:center;
   text-shadow: 2px 2px 2px gray;
 }
-
 .square:hover {
-  background-color:#A5A4B4;;
+  border:solid 1.5px #027e8c;
 }
+
 
 .winner{
   color: green !important;

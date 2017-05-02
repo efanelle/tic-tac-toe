@@ -56,15 +56,17 @@ function squareMoves(e) {
   if (moves1.indexOf(space) < 0 && moves2.indexOf(space) < 0) {
     if(move) {
       moves1.push(space)
-      $(this).text(X).css({'color': 'blue'}).addClass('selected')
+      $(`#${space}`).text(X).css({'color': 'blue'}).addClass('selected')
       movesLeft.splice(movesLeft.indexOf(space), 1);
       $('.player2').addClass('active')
       $('.player1').removeClass('active')
       return checkWinner(player1);
     } else {
-      if(player2==='Computer') {
+
+      if (player2==='Computer') {
         space = compMove;
       }
+
       moves2.push(space)
       $(`#${space}`).text(O).css({'color': 'red'}).addClass('selected')
       movesLeft.splice(movesLeft.indexOf(space), 1);
@@ -108,6 +110,7 @@ function reset() {
 }
 
 function checkWinner (player) {
+
   for (var i = 0; i < combos.length; i++) {
     var win = combos[i];
     var matchX = win.every(function(el) {
@@ -116,6 +119,7 @@ function checkWinner (player) {
     var matchO = win.every(function(el) {
       return $(`#${el}`).text() === O
     })
+
     if(matchX || matchO) {
       if(matchX) {
         wins1++
@@ -125,10 +129,9 @@ function checkWinner (player) {
         wins2++
          $('.player2 .wins').text(wins2);
       }
-      // setTimeout(function() {
-        // alert(`${player} is the winner!`)
-        $('.btn h1').text(`${player} is the winner!`)
-      // }, 1000);
+
+      $('.btn h1').text(`${player} is the winner!`)
+
       //add styling to show the win
       win.map(function(el) {
         $(`#${el}`).addClass('winner');
@@ -145,12 +148,12 @@ function checkWinner (player) {
   if (moves1.length + moves2.length === 9) {
       setTimeout(function(){
         alert('TIE! Play again!')
-      }, 300)
+      }, 200)
     }
-  if(player2 === 'Computer' && !move) {
+  // if player 2 is computer, set off click handler for next move
+  if (player2 === 'Computer' && !move) {
       var comp = Math.floor(Math.random() * movesLeft.length);
       compMove = movesLeft[comp];
-      console.log(movesLeft, compMove)
     $(`#${compMove}`).click();
   } 
 }
