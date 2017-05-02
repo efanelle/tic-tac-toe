@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Baloo');
 
 body {
-  /*background-color: #A5A4B4;*/
   background-color:whitesmoke;
 }
 button {
@@ -25,23 +24,15 @@ form {
   margin: 0 auto 10% auto;
   margin-top:3%;
 }
-.btns {
-  display:none;
-}
-.row:nth-child(odd) div:nth-child(odd) {
-  background-color:#c0e8ed;
-}
-.row:nth-child(even) div:nth-child(even) {
-  background-color:#c0e8ed;
-}
-
 .active {
   color: green;
 }
-
 .btn {
   flex-grow: 2;
   color:#01524B;
+}
+.btns {
+  display:none;
 }
 .child {
   width: 30%;
@@ -89,7 +80,12 @@ form {
   text-shadow: 2px 2px 2px gray;
   background-color:white;
 }
-
+.row:nth-child(odd) div:nth-child(odd) {
+  background-color:#c0e8ed;
+}
+.row:nth-child(even) div:nth-child(even) {
+  background-color:#c0e8ed;
+}
 .square:hover {
   border:solid 1.5px #027e8c;
 }
@@ -111,7 +107,7 @@ form {
 }
 
 .winner{
-  color: green !important;
+  color: #7EE590 !important;
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;
   -webkit-animation-iteration-count: 500ms;
