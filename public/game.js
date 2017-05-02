@@ -38,7 +38,8 @@ function newGame() {
   first = '.player1';
   wins1 = 0, wins2 = 0;
 
-  $('.active').removeClass('active')
+  $('.btn h1').text(`${empty}`);
+  $('.active').removeClass('active');
   $('.player1 h2').text(`${player1}: X`);
   $('.player2 h2').text(`${player2}: O`);
   $('.player1 .wins').text('0');
