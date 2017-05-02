@@ -201,12 +201,10 @@ function computerTurn() {
         count++
       } 
       else if ($(`#${el}`).text() === empty){
-        console.log(el)
         noMatch = el;
       }
     }
       if(count === 2 && noMatch) {
-        console.log('noMatch', noMatch, 'move', move)
         return $(`#${noMatch}`).click();
       }
   }
