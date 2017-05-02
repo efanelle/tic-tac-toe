@@ -191,6 +191,8 @@ function checkWinner (player) {
 //logic for computer
 
 function computerTurn() {
+  var goodMoves = [5,1,3,7,9]
+
   for (let i = 0; i < combos.length; i++) {
     var win = combos[i];
     var count = 0;
@@ -211,5 +213,10 @@ function computerTurn() {
 
   var comp = Math.floor(Math.random() * movesLeft.length);
   compMove = movesLeft[comp];
-  return $(`#${compMove}`).click();
+
+  var firstPick = goodMoves.filter(function(el) {
+    return movesLeft.includes(el);
+  })
+
+  return firstPick.length > 0 ? $(`#${firstPick[0]}`).click() : $(`#${compMove}`).click();
 }
