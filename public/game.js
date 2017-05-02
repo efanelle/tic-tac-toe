@@ -92,9 +92,6 @@ function squareMoves(e) {
       current = '.player1'
       next = '.player2'
     } else {
-      // if (player2==='Computer') {
-      //   space = compMove;
-      // }
       piece = O;
       player = player2;
       color = '#4070FF'
@@ -185,10 +182,7 @@ function checkWinner (player) {
 
   // if player 2 is computer, set off click handler for next move
   if (player2 === 'Computer' && !move) {
-  //     var comp = Math.floor(Math.random() * movesLeft.length);
-  //     compMove = movesLeft[comp];
       setTimeout(function() {
-  //       $(`#${compMove}`).click();
         computerTurn();
       }, 1000)
   } 
