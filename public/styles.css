@@ -4,6 +4,16 @@ body {
   /*background-color: #A5A4B4;*/
   background-color:whitesmoke;
 }
+button {
+  font-size:17px;
+  border-radius: 15px;
+  border: 1px transparent;
+  box-shadow: 4px 3px 0px 0px;
+  text-shadow: 1px 0px 0px;
+}
+button:focus {
+  outline:none;
+}
 form {
   text-align: left;
 }
@@ -15,6 +25,12 @@ form {
   margin: 0 auto 10% auto;
   margin-top:3%;
 }
+/*.row:nth-child(odd) div:nth-child(odd) {
+  background-color:#478E71;
+}
+.row:nth-child(even) div:nth-child(even) {
+  background-color:#478E71;
+}*/
 .active {
   color: green;
 }
@@ -75,40 +91,35 @@ form {
 .winner{
   color: green !important;
   -webkit-animation-name: spin;
-  -webkit-animation-duration: 4000ms;
-  -webkit-animation-iteration-count: 4000ms;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 500ms;
   -webkit-animation-timing-function: linear;
   -moz-animation-name: spin;
-  -moz-animation-duration: 4000ms;
-  -moz-animation-iteration-count: 4000ms;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: 500ms;
   -moz-animation-timing-function: linear;
   -ms-animation-name: spin;
-  -ms-animation-duration: 4000ms;
-  -ms-animation-iteration-count: 4000ms;
+  -ms-animation-duration: 1000ms;
+  -ms-animation-iteration-count: 500ms;
   -ms-animation-timing-function: linear;
-  
   animation-name: spin;
-  animation-duration: 4000ms;
-  animation-iteration-count: 4000ms;
+  animation-duration: 2000ms;
+  animation-iteration-count: 5000ms;
   animation-timing-function: linear;
-}
-@-ms-keyframes spin {
-    from { -ms-transform: rotate(0deg); }
-    to { -ms-transform: rotate(360deg); }
-}
-@-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
     from { -webkit-transform: rotate(0deg); }
     to { -webkit-transform: rotate(360deg); }
 }
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }

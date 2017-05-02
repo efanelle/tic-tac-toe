@@ -153,7 +153,9 @@ function checkWinner (player) {
   move = !move;
   // check for a tie before returning to game
   if (moves1.length + moves2.length === 9) {
-      alert('TIE! Play again!')
+      setTimeout(function(){
+        alert('TIE! Play again!')
+      }, 300)
     }
   if(player2 === 'Computer' && !move) {
       var comp = Math.floor(Math.random() * movesLeft.length);
