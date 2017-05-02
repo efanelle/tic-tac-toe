@@ -1,6 +1,3 @@
-// $(document).ready(function(){
-// })
-
 //board square options
 var X = 'X';
 var O = 'O';
@@ -10,24 +7,15 @@ var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 var combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], 
 [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
 
-// var movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-// var moves1 = [];
-// var moves2 = [];
-// var move = true;
-// var compMove;
-// var player1 = 'Player 1';
-// var player2 = 'Player 2';
-// var first = '.player1';
-// var wins1 = 0, wins2 = 0;
-var movesLeft, moves1, moves2, move, compMove, 
+var movesLeft, moves, move, compMove, 
 player1, player2, first, wins1, wins2;
 
 //initialize board with empty blocks 
 squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
 })
+//get intial variable values and provide inputs
 newGame();
-
 
 //add ability to submit on enter
 $('.user').keyup(function(e) {
@@ -36,15 +24,13 @@ $('.user').keyup(function(e) {
   }
 })
 
-
 function newGame() {
   $('.show').show();
   $('.btns').hide();
 
  //assign variable values
   movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  moves1 = [];
-  moves2 = [];
+  moves=[];
   move = true;
   compMove;
   player1 = 'Player 1';
@@ -52,8 +38,7 @@ function newGame() {
   first = '.player1';
   wins1 = 0, wins2 = 0;
 
-  $('.player1').removeClass('active');
-  $('.player2').removeClass('active');
+  $('.active').removeClass('active')
   $('.player1 h2').text(`${player1}: X`);
   $('.player2 h2').text(`${player2}: O`);
   $('.player1 .wins').text('0');
@@ -96,28 +81,31 @@ function enterPlayers() {
 //track moves 
 function squareMoves(e) {
   var space = Number(this.id);
-  if (moves1.indexOf(space) < 0 && moves2.indexOf(space) < 0) {
-    
-    if(move) {
-      moves1.push(space)
-      $(`#${space}`).text(X).css({'color': '#FFBEB9'}).addClass('selected')
-      movesLeft.splice(movesLeft.indexOf(space), 1);
-      $('.player2').addClass('active')
-      $('.player1').removeClass('active')
-      return checkWinner(player1);
-    } else {
+  if (moves.indexOf(space) < 0) {
 
+    var player, color, piece, current, next;
+    if(move) {
+      piece = X;
+      player = player1;
+      color = '#FFBEB9'
+      current = '.player1'
+      next = '.player2'
+    } else {
       if (player2==='Computer') {
         space = compMove;
       }
-
-      moves2.push(space)
-      $(`#${space}`).text(O).css({'color': '#4070FF'}).addClass('selected')
-      movesLeft.splice(movesLeft.indexOf(space), 1);
-      $('.player2').removeClass('active')
-      $('.player1').addClass('active')
-      return checkWinner(player2);
+      piece = O;
+      player = player2;
+      color = '#4070FF'
+      current = '.player2'
+      next = '.player1'
     }
+    $(`#${space}`).text(piece).css({'color': color}).addClass('selected')
+    moves.push(space);
+    movesLeft.splice(movesLeft.indexOf(space), 1);
+    $(current).removeClass('active')
+    $(next).addClass('active')
+    return checkWinner(player);
   }
 }
 
@@ -125,7 +113,9 @@ function squareMoves(e) {
 function reset() {
   clearBoard()
 
-  moves1 = [], moves2 = [], movesLeft = [1,2,3,4,5,6,7,8,9]
+  // moves1 = [], moves2 = [], 
+  moves = [];
+  movesLeft = [1,2,3,4,5,6,7,8,9]
   $('.btn h1').text(`${empty}`)
   
   // alternate who moves first if not computer
@@ -141,8 +131,7 @@ function reset() {
     move = true;
   }
 
-  $('.player1').removeClass('active')
-  $('.player2').removeClass('active')
+  $('.active').removeClass('active')
   $(first).addClass('active');
 
   //turn click handler back on
@@ -190,7 +179,7 @@ function checkWinner (player) {
   move = !move;
 
   // check for a tie before returning to game
-  if (moves1.length + moves2.length === 9) {
+  if (moves.length === 9) {
       setTimeout(function(){
         alert('TIE! Play again!')
       }, 200)
