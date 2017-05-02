@@ -71,6 +71,7 @@ function enterPlayers() {
   $('.show').hide();
   $('.btns').show();
   $('.user').val('')
+  $('.computer').prop('checked', false)
   $(first).addClass('active');
 
   // start event listener so moves can be made
