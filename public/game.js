@@ -3,9 +3,9 @@ var X = 'X';
 var O = 'O';
 var empty = ' ';
 
-var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], 
-[2,5,8], [3,6,9], [1,5,9], [3,5,7]]
+[2,5,8], [3,6,9], [1,5,9], [3,5,7]];
 
 var movesLeft, moves, move, compMove, 
 player1, player2, first, wins1, wins2;
@@ -13,7 +13,7 @@ player1, player2, first, wins1, wins2;
 //initialize board with empty blocks 
 squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
-})
+});
 //get intial variable values and provide inputs
 newGame();
 
@@ -110,6 +110,7 @@ function squareMoves(e) {
 //reset game board 
 function reset() {
   clearBoard()
+  //turn click handler back on 
 
   moves = [];
   movesLeft = [1,2,3,4,5,6,7,8,9]
@@ -130,8 +131,6 @@ function reset() {
 
   $('.active').removeClass('active')
   $(first).addClass('active');
-
-  //turn click handler back on
   $('.square').on('click', squareMoves);
 }
 
@@ -178,9 +177,10 @@ function checkWinner (player) {
   // check for a tie before returning to game
   if (moves.length === 9) {
       $('.btn h1').text(`Tie, play again!`)
+      return;
   }
 
-  // if player 2 is computer, set off click handler for next move
+  // if player 2 is computer, set off function for next move
   if (player2 === 'Computer' && !move) {
       setTimeout(function() {
         computerTurn();
