@@ -17,7 +17,7 @@
 <body>
   <div class='header'>
       <h1>P'unk-Tac-Toe</h1>
-      <p> Please enter your names and click submit (or hit enter).  Player 1 will go first
+      <p> Please enter your names and click 'Start Game'.  Player 1 will go first
         and have the 'X' symbol.  Player 2 will go next with the 'O' symbol.  Players will 
         alternate turns until a user has successfully aligned three of their symbols. You can 
         start over at any point during the game by clicking the 'Reset Board' button.
@@ -26,50 +26,55 @@
   </div>
   <div class='players'>
     <div class='player1 child'>
-      <h3>Player 1: X</h3>
-      <h4>Wins: <span class='wins'>0</span></h4>
+      <h2>Player 1: X</h2>
+      <h3>Wins: <span class='wins'>0</span></h3>
         <input placeholder="Enter name" class='name1 user'/>
     </div>
     <div class='btn child'> 
       <h1></h1>
       <Button id='users' onclick='enterPlayers()'>Start Game</Button>
-      <br />
-      <br />
+      <!--<br />
+      <br />-->
       <Button id='reset' onclick='reset()'>Reset Board</Button>
     </div>
     <div class='player2 child'>
-      <h3>Player 2: O</h3>
-      <h4>Wins: <span class='wins'>0</span></h4>
-      <form>
-      <input type="radio" name="name" value="name"><input placeholder="Enter name" class='name2 user'/></input>
-      <br />
-      <input type='radio' name='name' class='computer' value='Computer'/>
-      <label for='computer'>Play against Computer</label>
-      </form>
+      <h2>Player 2: O</h2>
+      <h3>Wins: <span class='wins'>0</span></h3>
+      <!--<form>-->
+        <input placeholder="Enter name" class='name2 user'/> <label> OR </label>
+        <input type='radio' name='name' class='computer' value='Computer'/>
+        <label for='computer'>Play against Computer</label>
+      <!--</form>-->
     </div>
   </div>
 
 <!--Set up board and classes to use flexbox for responsiveness-->
-  <div id='board'>
+  <div class='content'>
+    <!--<div id='start'>-->
+      <!--<Button id='users' onclick='enterPlayers()'>Start Game</Button>-->
+    <!--</div>-->
 
-    <div class='row'>
-      <div class='square' id='1'></div>
-      <div class='square' id='2'></div>
-      <div class='square' id='3'></div>
+    <div id='board'>
+
+      <div class='row'>
+        <div class='square' id='1'></div>
+        <div class='square' id='2'></div>
+        <div class='square' id='3'></div>
+      </div>
+
+      <div class='row'>
+        <div class='square' id='4'></div>
+        <div class='square' id='5'></div>
+        <div class='square' id='6'></div>
+      </div>
+
+      <div class='row'>
+        <div class='square' id='7'></div>
+        <div class='square' id='8'></div>
+        <div class='square' id='9'></div>
+      </div>
+
     </div>
-
-    <div class='row'>
-      <div class='square' id='4'></div>
-      <div class='square' id='5'></div>
-      <div class='square' id='6'></div>
-    </div>
-
-    <div class='row'>
-      <div class='square' id='7'></div>
-      <div class='square' id='8'></div>
-      <div class='square' id='9'></div>
-    </div>
-
   </div>
 
   <div class='footer'>

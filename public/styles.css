@@ -25,12 +25,16 @@ form {
   margin: 0 auto 10% auto;
   margin-top:3%;
 }
+#reset {
+  display:none;
+}
 /*.row:nth-child(odd) div:nth-child(odd) {
   background-color:#478E71;
 }
 .row:nth-child(even) div:nth-child(even) {
   background-color:#478E71;
 }*/
+
 .active {
   color: green;
 }
@@ -60,6 +64,7 @@ form {
   justify-content: space-around;
   text-align: center;
   align-items:center;
+  height:30vh;
 }
 
 .row {

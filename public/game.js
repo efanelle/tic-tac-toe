@@ -30,17 +30,16 @@ function enterPlayers() {
   var checked = $('.computer:checked').val();
   player1 = $('.name1').val() || player1
   player2 = $('.name2').val() || player2
-  console.log(checked);
   if(checked) player2 = checked
 
-  $('.player1 h3').text(`${player1}: X`)
-  $('.player2 h3').text(`${player2}: O`)
+  $('.player1 h2').text(`${player1}: X`)
+  $('.player2 h2').text(`${player2}: O`)
   
-  // $('input').val('')
   $('input').hide()
   $('label').hide()
-  $(first).addClass('active')
   $('#users').hide()
+  $('#reset').show()
+  $(first).addClass('active')
 }
 
 //add ability to submit on enter
@@ -50,14 +49,6 @@ $('.user').keyup(function(e) {
   }
 })
 
-// function computerMove() {
-//   var comp = Math.floor(Math.random() * movesLeft.length);
-//   var currentMove = movesLeft[comp];
-//   moves2.push(currentMove);
-//   $(`#${currentMove}`).text(O).css({'color': 'red'}).addClass('selected');
-//   movesLeft.splice(movesLeft.indexOf(comp), 1);
-//   checkWinner(player2);
-// }
 
 //track moves 
 function squareMoves(e) {
@@ -73,7 +64,6 @@ function squareMoves(e) {
     } else {
       if(player2==='Computer') {
         space = compMove;
-        console.log('waaaat')
       }
       moves2.push(space)
       $(`#${space}`).text(O).css({'color': 'red'}).addClass('selected')
