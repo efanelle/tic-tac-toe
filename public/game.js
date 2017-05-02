@@ -92,9 +92,9 @@ function squareMoves(e) {
       current = '.player1'
       next = '.player2'
     } else {
-      if (player2==='Computer') {
-        space = compMove;
-      }
+      // if (player2==='Computer') {
+      //   space = compMove;
+      // }
       piece = O;
       player = player2;
       color = '#4070FF'
@@ -185,11 +185,39 @@ function checkWinner (player) {
 
   // if player 2 is computer, set off click handler for next move
   if (player2 === 'Computer' && !move) {
-      var comp = Math.floor(Math.random() * movesLeft.length);
-      compMove = movesLeft[comp];
+  //     var comp = Math.floor(Math.random() * movesLeft.length);
+  //     compMove = movesLeft[comp];
       setTimeout(function() {
-        $(`#${compMove}`).click();
+  //       $(`#${compMove}`).click();
+        computerTurn();
       }, 1000)
   } 
 }
+//*******************************************//
+//logic for computer
 
+function computerTurn() {
+  for (let i = 0; i < combos.length; i++) {
+      var win = combos[i];
+      var count = 0;
+      var noMatch;
+      for(let j = 0; j < win.length; j++) {
+        let el = win[j];
+        if ($(`#${el}`).text() === X) {
+          count++
+        } 
+        else if ($(`#${el}`).text() === empty){
+          console.log(el)
+          noMatch = el;
+        }
+      }
+        if(count === 2 && noMatch) {
+          console.log('noMatch', noMatch, 'move', move)
+          return $(`#${noMatch}`).click();
+        }
+  }
+
+  var comp = Math.floor(Math.random() * movesLeft.length);
+  compMove = movesLeft[comp];
+  return $(`#${compMove}`).click();
+}
