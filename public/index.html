@@ -33,18 +33,24 @@
     <div class='btn child'> 
       <h1></h1>
       <Button id='users' onclick='enterPlayers()'>Start Game</Button>
-      <!--<br />
-      <br />-->
+
+      <div class= 'btns'>
       <Button id='reset' onclick='reset()'>Reset Board</Button>
+      <br />
+      <br />
+      <Button id='new' onclick='newGame()'>New Game</Button>
+      </div>
     </div>
     <div class='player2 child'>
       <h2>Player 2: O</h2>
       <h3>Wins: <span class='wins'>0</span></h3>
-      <!--<form>-->
-        <input placeholder="Enter name" class='name2 user'/> <label> OR </label>
+
+        <input placeholder="Enter name" class='name2 user'/> 
+        <br/>
+        <label> OR </label>
         <input type='radio' name='name' class='computer' value='Computer'/>
         <label for='computer'>Play against Computer</label>
-      <!--</form>-->
+
     </div>
   </div>
 

@@ -7,9 +7,10 @@ var O = 'O';
 var empty = ' ';
 
 var squares = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-var movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 var combos = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], 
 [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
+
+var movesLeft = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 var moves1 = [];
 var moves2 = [];
 var move = true;
@@ -19,6 +20,32 @@ var player2 = 'Player 2';
 var first = '.player1';
 var wins1 = 0, wins2 = 0;
 
+
+function newGame() {
+  $('input').show()
+  $('label').show()
+  $('#users').show()
+  $('.btns').hide()
+
+  reset();
+  move = true;
+  compMove;
+  player1 = 'Player 1';
+  player2 = 'Player 2';
+  first = '.player1';
+  wins1 = 0, wins2 = 0;
+
+
+  $('.player1').removeClass('active')
+  $('.player2').removeClass('active')
+  $('.player1 h2').text(`${player1}: X`)
+  $('.player2 h2').text(`${player2}: O`)
+  $('.player1 .wins').text('0');
+  $('.player2 .wins').text('0');
+
+  clearBoard()
+  $('.square').off();
+}
 //initialize board with empty blocks 
 squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
@@ -31,9 +58,11 @@ $('.user').keyup(function(e) {
   }
 })
 
-//add event listener 
-$('.square').on('click',squareMoves)
-
+function clearBoard() {
+    squares.forEach(function(square) {
+    $(`#${square}`).text(`${empty}`).removeClass('selected winner');
+  }) 
+}
 
 //**********//
 
@@ -51,8 +80,14 @@ function enterPlayers() {
   $('input').hide()
   $('label').hide()
   $('#users').hide()
-  $('#reset').show()
+  $('.btns').show()
   $(first).addClass('active')
+
+  $('.user').val('')
+
+  // start event listener so moves can be made
+  $('.square').on('click',squareMoves)
+
 }
 
 //track moves 
@@ -84,11 +119,11 @@ function squareMoves(e) {
 
 //reset game board 
 function reset() {
+  clearBoard()
+
   moves1 = [], moves2 = [], movesLeft = [1,2,3,4,5,6,7,8,9]
   $('.btn h1').text(`${empty}`)
-  squares.forEach(function(square) {
-    $(`#${square}`).text(`${empty}`).removeClass('selected winner');
-  }) 
+  
   
   // alternate who moves first if not computer
   if(player2!=='Computer') {
@@ -144,7 +179,6 @@ function checkWinner (player) {
       return;
     } 
   }
-
   // change active class to other player if no winner
   move = !move;
 
@@ -159,7 +193,9 @@ function checkWinner (player) {
   if (player2 === 'Computer' && !move) {
       var comp = Math.floor(Math.random() * movesLeft.length);
       compMove = movesLeft[comp];
-    $(`#${compMove}`).click();
+      setTimeout(function() {
+        $(`#${compMove}`).click();
+      }, 1000)
   } 
 }
 

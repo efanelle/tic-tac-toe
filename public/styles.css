@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo');
+@import url('https://fonts.googleapis.com/css?family=Arimo|Baloo');
 
 body {
   /*background-color: #A5A4B4;*/
@@ -25,7 +25,7 @@ form {
   margin: 0 auto 10% auto;
   margin-top:3%;
 }
-#reset {
+.btns {
   display:none;
 }
 .row:nth-child(odd) div:nth-child(odd) {
@@ -41,7 +41,6 @@ form {
 
 .btn {
   flex-grow: 2;
-  z-index: 100;
   color:#01524B;
 }
 .child {
@@ -64,7 +63,8 @@ form {
   justify-content: space-around;
   text-align: center;
   align-items:center;
-  height:30vh;
+  height:40%;
+  font-family: Arimo;
 }
 
 .row {
@@ -87,11 +87,28 @@ form {
   justify-content: center;
   align-items:center;
   text-shadow: 2px 2px 2px gray;
+  background-color:white;
 }
+
 .square:hover {
   border:solid 1.5px #027e8c;
 }
-
+.user {
+  border: 5px solid white; 
+  -webkit-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  -moz-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  padding: 15px;
+  background: rgba(255,255,255,0.5);
+  margin: 0 0 10px 0;
+  font-size:.75em;
+}
 
 .winner{
   color: green !important;
