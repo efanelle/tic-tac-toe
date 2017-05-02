@@ -55,8 +55,9 @@ form {
   justify-content: space-around;
   text-align: center;
   align-items:center;
-  height:40%;
+  height:45%;
   font-family: Arimo;
+  margin-bottom:5%;
 }
 
 .row {
