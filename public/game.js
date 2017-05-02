@@ -24,8 +24,21 @@ squares.map(function(el) {
   $(`#${el}`).append(`<p>${empty}</p>`);
 })
 
-// change values of player names or keep default 
-// values of 'Player 1' and 'Player 2'
+//add ability to submit on enter
+$('.user').keyup(function(e) {
+  if (e.keyCode === 13) {
+    $('#users').click();
+  }
+})
+
+//add event listener 
+$('.square').on('click',squareMoves)
+
+
+//**********//
+
+// change values of player names or keep default names
+// check for computer
 function enterPlayers() {
   var checked = $('.computer:checked').val();
   player1 = $('.name1').val() || player1
@@ -41,14 +54,6 @@ function enterPlayers() {
   $('#reset').show()
   $(first).addClass('active')
 }
-
-//add ability to submit on enter
-$('.user').keyup(function(e) {
-  if (e.keyCode === 13) {
-    $('#users').click();
-  }
-})
-
 
 //track moves 
 function squareMoves(e) {
@@ -77,9 +82,6 @@ function squareMoves(e) {
   }
 }
 
-//add event listener 
-$('.square').on('click',squareMoves)
-
 //reset game board 
 function reset() {
   moves1 = [], moves2 = [], movesLeft = [1,2,3,4,5,6,7,8,9]
@@ -88,7 +90,7 @@ function reset() {
     $(`#${square}`).text(`${empty}`).removeClass('selected winner');
   }) 
   
-  // alternate who moves first
+  // alternate who moves first if not computer
   if(player2!=='Computer') {
     if(first === '.player1') {
       first = '.player2'
@@ -142,14 +144,17 @@ function checkWinner (player) {
       return;
     } 
   }
+
   // change active class to other player if no winner
   move = !move;
+
   // check for a tie before returning to game
   if (moves1.length + moves2.length === 9) {
       setTimeout(function(){
         alert('TIE! Play again!')
       }, 200)
     }
+
   // if player 2 is computer, set off click handler for next move
   if (player2 === 'Computer' && !move) {
       var comp = Math.floor(Math.random() * movesLeft.length);
