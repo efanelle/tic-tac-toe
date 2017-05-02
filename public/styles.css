@@ -25,7 +25,8 @@ form {
   margin-top:3%;
 }
 .active {
-  color: green;
+  color: #76CAD4;
+  text-shadow: 2px 2px 2px lightgray;
 }
 .btn {
   flex-grow: 2;
@@ -107,7 +108,8 @@ form {
 }
 
 .winner{
-  color: #7EE590 !important;
+  /*color: #7EE590 !important;*/
+  border: 1px solid #04CDE9 !important;
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;
   -webkit-animation-iteration-count: 500ms;

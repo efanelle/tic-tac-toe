@@ -96,7 +96,7 @@ function squareMoves(e) {
   if (moves1.indexOf(space) < 0 && moves2.indexOf(space) < 0) {
     if(move) {
       moves1.push(space)
-      $(`#${space}`).text(X).css({'color': 'blue'}).addClass('selected')
+      $(`#${space}`).text(X).css({'color': '#FFBEB9'}).addClass('selected')
       movesLeft.splice(movesLeft.indexOf(space), 1);
       $('.player2').addClass('active')
       $('.player1').removeClass('active')
@@ -108,7 +108,7 @@ function squareMoves(e) {
       }
 
       moves2.push(space)
-      $(`#${space}`).text(O).css({'color': 'red'}).addClass('selected')
+      $(`#${space}`).text(O).css({'color': '#4070FF'}).addClass('selected')
       movesLeft.splice(movesLeft.indexOf(space), 1);
       $('.player2').removeClass('active')
       $('.player1').addClass('active')
@@ -123,7 +123,6 @@ function reset() {
 
   moves1 = [], moves2 = [], movesLeft = [1,2,3,4,5,6,7,8,9]
   $('.btn h1').text(`${empty}`)
-  
   
   // alternate who moves first if not computer
   if(player2!=='Computer') {
@@ -161,10 +160,12 @@ function checkWinner (player) {
       if(matchX) {
         wins1++
         $('.player1 .wins').text(wins1);
+        $('.player2').removeClass('active')
       }
       if(matchO) {
         wins2++
          $('.player2 .wins').text(wins2);
+         $('.player1').removeClass('active')
       }
 
       $('.btn h1').text(`${player} is the winner!`)
